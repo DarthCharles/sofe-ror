@@ -8,7 +8,7 @@ Each solved issue will make the participants collect points depending on the dif
 
 You can find the least of known issues, their difficulty and the points for fixing them in this document:
 
-https://docs.google.com/spreadsheets/d/1y8ofbtT16rRPKr5_8JaH7GsliXeVaVDJqjBmRdUuiRI/edit#gid=0
+https://docs.google.com/spreadsheets/d/1dWIOMkvStzVwYwjx_0f6Tvhs3V4xbo-c_w8xtXPHSoQ/edit?usp=sharing
 
 # Requirements
  * Docker
@@ -20,7 +20,7 @@ https://docs.google.com/spreadsheets/d/1y8ofbtT16rRPKr5_8JaH7GsliXeVaVDJqjBmRdUu
   - Linux: https://www.docker.com/products/docker#/linux
 
 ### To run the application:
-* Clone this repo: `git clone https://github.com/Nearsoft/sofe.git`
+* Clone this repo: `https://github.com/DarthCharles/sofe-ror` or click download to desktop.
 * Go to the project folder `cd sofe/stage-4/`
 * 1st build your container images by running: `docker-compose build`
 * Too fire up all of your app's containers run `docker-compose up`
