@@ -1,0 +1,24 @@
+.row
+  .col-md-12
+  - unless @orders.blank?
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th Product
+          th Status
+          th Total
+          th Customer
+          th Actions
+      tbody
+      - @orders.each do |order|
+        tr
+          td = order.id
+          td = order.product.present? ? link_to(order.product.name, admin_product_path(order.product)) : 'DELETED'
+          td = order.status
+          td.strong = number_to_currency(order.total)
+          td = order.customer.present? ? order.customer.name : nil
+          td = order.status == 'PENDING' ? link_to('Mark as completed', admin_order_complete_path(order), class: 'btn btn-primary') : nil
+          td = link_to t('admin.actions.destroy'), admin_order_path(order), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+  - else
+    p= t('admin.navigation.blank')

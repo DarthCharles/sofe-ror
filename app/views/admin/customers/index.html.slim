@@ -1,0 +1,20 @@
+.row
+  .col-md-12
+  - unless @customers.blank?
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th Name
+          th Address
+          th phone_number
+      tbody
+      - @customers.each do |customer|
+        tr
+          th scope="row"= customer.id
+          td = customer.name
+          td = customer.address
+          td = customer.phone_number
+  - else
+    p There is nothing to see here.
+

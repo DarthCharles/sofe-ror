@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title
+      = t('app_name')
+    meta name="description" content=""
+    meta name="author" content=""
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=> 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    .container
+      .row
+        .col-md-12
+          nav.navbar.navbar-default
+            .container-fluid
+              .navbar-header
+                button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+                a.navbar-brand href="#"= t('app_name')
+              #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                  li.active
+                    = link_to t('admin.navigation.home'), admin_welcome_index_path
+                ul.nav.navbar-nav.navbar-right
+                  li
+                    = link_to t('admin.navigation.shop'), admin_welcome_index_path
+      .row
+        .col-md-12
+          = render 'layouts/messages'
+
+      .row
+        .col-md-12
+          .jumbotron
+            = yield

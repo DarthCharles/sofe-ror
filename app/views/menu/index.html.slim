@@ -1,0 +1,23 @@
+.portfolio
+  .container.push-double--ends
+    .push-double--top.text-center
+      h2 Conoce nuestro menú
+      .letter-spacing--tiny
+        p Echa un vistazo a nuestra deliciosa variedad de platillos y postres.
+
+    .sap_tabs
+      ul.resp-tabs-list
+        li.resp-tab-item
+          = link_to('Todo', menu_index_path(type: :all), class: '')
+        li.resp-tab-item
+          = link_to('Platillos', menu_index_path(type: :meal))
+        li.resp-tab-item
+          = link_to('Postres', menu_index_path(type: :dessert))
+
+    - @products.each do |product|
+      .col-md-4.portfolio-grids
+        .gallery-grid
+          = link_to image_tag(product.image, class: 'img-responsive'), orders_path(product: product)
+          h4
+            span = product.name
+

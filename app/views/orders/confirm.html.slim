@@ -1,0 +1,47 @@
+.container.push-double--ends
+  .row.push-double--top.text-center
+    .col-md-12
+      h2 Muchas Gracias! 🎉
+      .letter-spacing--tiny
+        p Tu orden está siendo procesada
+
+  .push-double--ends
+    .row
+      .col-md-6.push-double--ends
+        = image_tag(@order.product.image, class: 'img-responsive')
+      .col-md-6
+        .row
+          .col-md-12
+            table.table.order-details
+              thead
+                th colspan=(2)
+                  h4 Detalles de la Orden
+              tbody
+                tr
+                  td= "1 #{@order.product.name}"
+                  td= number_to_currency(@order.product.price)
+                tr
+                  td Bebida
+                  td= number_to_currency(@order.product.drinks)
+                tr
+                  td Envio
+                  td= number_to_currency(@order.product.delivery)
+        .row
+          .col-md-12
+            table.table.order-details
+              thead
+                th colspan=(2)
+                  h4 Detalles del Envio
+              tbody
+                tr
+                  td Nombre
+                  td= @order.customer.name
+                tr
+                  td Direccion
+                  td= @order.customer.address
+                tr
+                  td Telefono
+                  td= @order.customer.phone_number
+
+        .text-right
+          h3= "Total: #{number_to_currency(@order.product.total)}"

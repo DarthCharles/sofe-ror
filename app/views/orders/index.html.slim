@@ -1,0 +1,62 @@
+.container.push-double--ends
+  .row.push-double--top.text-center
+    .col-md-12
+      h2 Completa tu orden
+      .letter-spacing--tiny
+        p Confirma tu orden y tus datos personales.
+
+  .push-double--ends
+    .row
+      .col-md-6
+        .row
+          .col-md-12.text-center.push-half--bottom
+            h3.push-half--bottom= @product.name
+        .row
+          .col-md-6
+            = image_tag(@product.image, class: 'img-responsive')
+          .col-md-6
+            p=  @product.description
+            ul
+              li
+                p Bebida Incluida en el precio final
+              li
+                p Se cobrará un cargo por envío a domicilio
+              li
+                p No se aceptan devoluciones
+
+        .row
+          .col-md-12
+            table.table.order-details
+              thead
+                th colspan=(2)
+                  h4 Detalles de la Orden
+              tbody
+                tr
+                  td= "1 #{@product.name}"
+                  td= number_to_currency(@product.price)
+                tr
+                  td Bebida
+                  td= number_to_currency(@product.drinks)
+                tr
+                  td Envio
+                  td= number_to_currency(@product.delivery)
+
+            .text-right
+              h3= "Total: #{number_to_currency(@product.total)}"
+
+      .col-md-6
+        .row
+          .col-md-12
+            h4 Detalles del Envio
+        .row
+          .col-md-12
+            .form-group
+              = simple_form_for :customer, url: order_place_order_path(@order) do |f|
+                .push-half--top.strong Nombre:
+                = f.input :name, label: false,  input_html: { class: 'form-control' }
+                .push-half--top.strong Dirección:
+                = f.input :adress, label: false, input_html: { class: 'form-control' }
+                .push-half--top.strong Telefono:
+                = f.input :phone_number, label: false, input_html: { class: 'form-control' }
+                .button.push-double--top.right
+                  = f.button :submit, 'Enviar Orden', class: 'button'

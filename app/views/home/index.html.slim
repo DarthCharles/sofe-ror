@@ -1,0 +1,62 @@
+.header
+  .agile-top-header
+    .logo
+      h1
+        a href="index.html"
+          | SO
+          span> FE
+          | Stage
+          span> 4
+    /! navigation
+    .top-left
+      .top-icons
+        ul
+          li
+            a href="#"
+              i.fa.fa-facebook aria-hidden="true"
+              | Facebook
+          li
+            a href="#"
+              i.fa.fa-twitter aria-hidden="true"
+              | Twitter
+          li
+            a href="#"
+              i.fa.fa-instagram aria-hidden="true"
+              | Instagram
+
+  .slider
+    /! Slideshow 3
+    ul#slider.rslides
+      li
+        = image_tag('bg1.jpg')
+        .slider-info
+          h4 Bienvenido
+          p Lorem ipsum dolor sit amet, consectetur et dolore magna aliqua.
+          .button.push-double--top
+            a href= menu_index_path
+              | Ordena Aqui!&nbsp;
+              i.fa.fa-arrow-right
+      li
+        = image_tag('bg2.jpg')
+        .slider-info.full-height
+          h4 Pide en linea
+          p Lorem ipsum dolor sit amet, consectetur et dolore magna aliqua.
+          .button.push-double--top
+            a href=menu_index_path
+              | Ordena Aqui!&nbsp;
+              i.fa.fa-arrow-right
+      li
+        = image_tag('bg3.jpg')
+        .slider-info
+          h4 Sé Feliz
+          p Lorem ipsum dolor sit amet, consectetur et dolore magna aliqua.
+          .button.push-double--top
+            a href=menu_index_path
+              | Ordena Aqui!&nbsp;
+              i.fa.fa-arrow-right
+
+    /! Slideshow 3 Pager
+    ul#slider3-pager
+      li = link_to image_tag('bgs-11.jpg'), '#'
+      li = link_to image_tag('bgs-22.jpg'), '#'
+      li = link_to image_tag('bgs-33.jpg'), '#'

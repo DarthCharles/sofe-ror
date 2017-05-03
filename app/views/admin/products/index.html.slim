@@ -1,0 +1,26 @@
+.row
+  .col-md-12.text-right
+    = link_to t('admin.actions.create'), new_admin_product_path, class: 'btn btn-primary'
+
+.row
+  .col-md-12
+  - unless @products.blank?
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th Name
+          th Image
+          th Created
+          th Actions
+      tbody
+      - @products.each do |product|
+        tr
+          th scope="row"= product.id
+          td = link_to product.name, admin_product_path(product)
+          td = image_tag product.image(:thumb)
+          td = time_ago_in_words(product.created_at)
+          td = link_to t('admin.actions.destroy'), admin_product_path(product), method: :options, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+  - else
+    h2= t('.add_ingredient')
+    p= t('.no_ingredients')
